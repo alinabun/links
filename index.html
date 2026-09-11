@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alina Bun — Links</title>
+<meta name="description" content="Fresh buns, baked to order. Find Alina Bun on Instagram, TikTok and Facebook.">
+<meta name="theme-color" content="#F4EEE1">
+<link rel="canonical" href="https://links.alinabun.com/">
+
+<!-- Social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alina Bun">
+<meta property="og:description" content="Fresh buns, baked to order.">
+<meta property="og:url" content="https://links.alinabun.com/">
+<meta property="og:image" content="https://links.alinabun.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── Brand tokens (mirrored from alinabun/brand/tokens.css) ───────── */
+:root{
+  --milk-bun:#F4EEE1; --warm-glaze:#D9C1A0; --golden-crust:#BD8145;
+  --toasted-crumb:#8C6A4B; --dark-roast:#3B2417; --white:#FFFFFF;
+  --bg:var(--milk-bun); --text:var(--dark-roast); --text-muted:var(--toasted-crumb);
+  --accent:var(--golden-crust); --border:rgba(59,36,23,.08);
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --radius-md:14px; --radius-pill:999px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100vh;
+  background:var(--bg); color:var(--text);
+  font-family:var(--font-body); line-height:1.5;
+  display:flex; flex-direction:column; align-items:center;
+  padding:48px 20px 40px;
+  /* soft warmth at the top, like light off a glaze */
+  background-image:radial-gradient(ellipse 120% 60% at 50% 0%, rgba(217,193,160,.55), transparent 70%);
+  background-repeat:no-repeat;
+}
+.card{width:100%; max-width:420px; text-align:center}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.logo{
+  width:84px;height:84px;margin:0 auto 20px;display:block;
+  border-radius:var(--radius-pill);
+  background:var(--white);
+  border:1px solid var(--border);
+  box-shadow:0 4px 16px rgba(59,36,23,.08);
+  object-fit:cover;
+}
+h1{
+  font-family:var(--font-display); font-optical-sizing:auto;
+  font-weight:600; font-size:32px; letter-spacing:-.01em;
+  margin:0 0 8px;
+}
+.tagline{margin:0 0 6px; font-size:15.5px; color:var(--text-muted)}
+.handle{
+  margin:0 0 32px; font-size:13.5px; color:var(--text-muted);
+  opacity:.8; letter-spacing:.02em;
+}
+
+/* ── Links ──────────────────────────────────────────────────────── */
+.links{display:flex; flex-direction:column; gap:12px; margin-bottom:32px}
+.link{
+  display:flex; align-items:center; gap:14px;
+  padding:15px 18px;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  color:var(--text); text-decoration:none;
+  font-size:15.5px; font-weight:500;
+  box-shadow:0 1px 2px rgba(59,36,23,.05);
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.link:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(59,36,23,.11);
+  border-color:rgba(59,36,23,.16);
+}
+.link:active{transform:translateY(0)}
+.link:focus-visible{outline:2.5px solid var(--accent); outline-offset:3px}
+.link .icon{flex:0 0 22px; width:22px; height:22px; color:var(--toasted-crumb)}
+.link .label{flex:1; text-align:left}
+.link .sub{display:block; font-size:12.5px; font-weight:400; color:var(--text-muted); margin-top:1px}
+.link .chev{flex:0 0 auto; color:var(--text-muted); opacity:.5}
+
+/* Primary "order" link — the one action that matters */
+.link.primary{
+  background:var(--accent); border-color:var(--accent); color:var(--white);
+  font-weight:600; box-shadow:0 2px 10px rgba(189,129,69,.28);
+}
+.link.primary .icon,.link.primary .chev{color:var(--white); opacity:.9}
+.link.primary .sub{color:rgba(255,255,255,.82)}
+.link.primary:hover{box-shadow:0 10px 24px rgba(189,129,69,.34)}
+
+footer{font-size:12.5px; color:var(--text-muted); opacity:.75}
+footer a{color:inherit; text-decoration:none; border-bottom:1px solid var(--border)}
+footer a:hover{color:var(--text)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<main class="card">
+
+  <img class="logo" src="assets/logo.png" alt="Alina Bun"
+       onerror="this.style.display='none'">
+
+  <h1>Alina Bun</h1>
+  <p class="tagline">Fresh buns, baked to order.</p>
+  <p class="handle">@alina.bun_</p>
+
+  <nav class="links">
+
+    <!-- Primary action. Point this wherever orders actually come in. -->
+    <a class="link primary" href="https://www.instagram.com/alina.bun_/">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span class="label">Order a box<span class="sub">Send us a DM on Instagram</span></span>
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="link" href="https://www.instagram.com/alina.bun_/">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="label">Instagram<span class="sub">Photos of what's fresh</span></span>
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="link" href="https://www.tiktok.com/@alina.bun_">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .72-5.08v-3.1a5.65 5.65 0 0 0-.72-.05A5.67 5.67 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48z"/>
+      </svg>
+      <span class="label">TikTok<span class="sub">Baking, start to finish</span></span>
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="link" href="https://www.facebook.com/share/1CqeotLEx9/">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94z"/>
+      </svg>
+      <span class="label">Facebook<span class="sub">Updates &amp; pickup times</span></span>
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- Uncomment when store.alinabun.com is live:
+    <a class="link" href="https://store.alinabun.com">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span class="label">Order online<span class="sub">Browse the full menu</span></span>
+      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    -->
+
+  </nav>
+
+  <footer>
+    <a href="https://alinabun.com">alinabun.com</a>
+  </footer>
+
+</main>
+</body>
+</html>
