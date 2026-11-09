@@ -42,6 +42,11 @@ bun gets a card with its store photo), the delivery fees and minimum, and the In
 Change those in the store admin, never here. The store allows this origin in its CORS list
 (`allowedOrigins` in the `store` function); if the page moves, add the new origin there.
 
+The page also sends what visitors do to the store's own analytics (`POST /e`, the store admin's Visitors tab):
+anonymous, in small batches, never anything typed (the same tracker as the store and alinabun.com). A visit that opens
+this page with no app or website before it counts as the **box QR code**, so links shared from the page carry `?s=share`.
+Each tile has a `data-track` name; keep it when you edit a link, and give a new link one.
+
 Locally, serve this folder on port 5173 (the store's dev origin) to see live data:
 
 ```bash
