@@ -1,177 +1,947 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alina Bun — Links</title>
-<meta name="description" content="Fresh buns, baked to order. Find Alina Bun on Instagram, TikTok and Facebook.">
-<meta name="theme-color" content="#F4EEE1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alina Bun · Softest bun you will ever touch</title>
+<meta name="description" content="Order soft, golden buns made by hand in Malé, the morning you get them. Find Alina Bun on Instagram, TikTok and Facebook.">
+<meta name="theme-color" content="#3B2417">
 <link rel="canonical" href="https://links.alinabun.com/">
-
-<!-- Social preview -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Alina Bun">
-<meta property="og:description" content="Fresh buns, baked to order.">
+<meta property="og:site_name" content="Alina Bun">
+<meta property="og:title" content="Alina Bun · Softest bun you will ever touch">
+<meta property="og:description" content="Fresh buns, made by hand in Malé. Order, follow, say hi.">
 <meta property="og:url" content="https://links.alinabun.com/">
-<meta property="og:image" content="https://links.alinabun.com/assets/og.png">
+<meta property="og:image" content="https://links.alinabun.com/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tuna, cream and chocolate buns on boards and a plate">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/icon-180.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/img/hero-540.avif" as="image" type="image/avif" fetchpriority="high">
+<link rel="preload" href="assets/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-480i.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://vosokllmaifbcdfbfvdt.supabase.co" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
 <style>
-/* ── Brand tokens (mirrored from alinabun/brand/tokens.css) ───────── */
-:root{
-  --milk-bun:#F4EEE1; --warm-glaze:#D9C1A0; --golden-crust:#BD8145;
-  --toasted-crumb:#8C6A4B; --dark-roast:#3B2417; --white:#FFFFFF;
-  --bg:var(--milk-bun); --text:var(--dark-roast); --text-muted:var(--toasted-crumb);
-  --accent:var(--golden-crust); --border:rgba(59,36,23,.08);
-  --font-display:'Fraunces',Georgia,serif;
-  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --radius-md:14px; --radius-pill:999px;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; min-height:100vh;
-  background:var(--bg); color:var(--text);
-  font-family:var(--font-body); line-height:1.5;
-  display:flex; flex-direction:column; align-items:center;
-  padding:48px 20px 40px;
-  /* soft warmth at the top, like light off a glaze */
-  background-image:radial-gradient(ellipse 120% 60% at 50% 0%, rgba(217,193,160,.55), transparent 70%);
-  background-repeat:no-repeat;
-}
-.card{width:100%; max-width:420px; text-align:center}
+/* Fraunces cut down to two styles and the characters we use (tools/build-media.sh): ~26 KB, same server, no Google round trips. */
+@font-face { font-family: Fraunces; src: url(assets/fonts/fraunces-600.woff2) format("woff2"); font-weight: 500 700; font-display: swap; }
+@font-face { font-family: Fraunces; src: url(assets/fonts/fraunces-480i.woff2) format("woff2"); font-weight: 300 600; font-style: italic; font-display: swap; }
+/* Georgia sized like Fraunces, so the headline doesn't jump when the font arrives. */
+@font-face { font-family: "Fraunces fallback"; src: local("Georgia"); size-adjust: 105.4%; ascent-override: 92.8%; descent-override: 24.2%; line-gap-override: 0%; }
+@font-face { font-family: "Fraunces fallback"; src: local("Georgia Italic"), local("Georgia-Italic"); font-style: italic; size-adjust: 97.2%; ascent-override: 100.6%; descent-override: 26.2%; line-gap-override: 0%; }
 
-/* ── Header ─────────────────────────────────────────────────────── */
-.logo{
-  width:84px;height:84px;margin:0 auto 20px;display:block;
-  border-radius:var(--radius-pill);
-  background:var(--white);
-  border:1px solid var(--border);
-  box-shadow:0 4px 16px rgba(59,36,23,.08);
-  object-fit:cover;
-}
-h1{
-  font-family:var(--font-display); font-optical-sizing:auto;
-  font-weight:600; font-size:32px; letter-spacing:-.01em;
-  margin:0 0 8px;
-}
-.tagline{margin:0 0 6px; font-size:15.5px; color:var(--text-muted)}
-.handle{
-  margin:0 0 32px; font-size:13.5px; color:var(--text-muted);
-  opacity:.8; letter-spacing:.02em;
+:root {
+  /* Brand tokens, mirrored from brand/tokens.css in alinabun/alinabun (see README). RGB triplets = the same colours, for alpha. */
+  --milk-bun: #F4EEE1; --warm-glaze: #D9C1A0; --golden-crust: #BD8145; --toasted-crumb: #8C6A4B; --dark-roast: #3B2417; --white: #FFFFFF;
+  --dr: 59, 36, 23; --mb: 244, 238, 225; --gc: 189, 129, 69; --wg: 217, 193, 160;
+  --font-display: Fraunces, "Fraunces fallback", Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* the phone's own font: nothing to download */
+  --ease: cubic-bezier(.2, .75, .2, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --gutter: 20px;
+  --sheet: 30px;
+  /* a whisper of dark-roast grain over milk-bun, like kraft paper */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .231 0 0 0 0 .141 0 0 0 0 .09 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ── Links ──────────────────────────────────────────────────────── */
-.links{display:flex; flex-direction:column; gap:12px; margin-bottom:32px}
-.link{
-  display:flex; align-items:center; gap:14px;
-  padding:15px 18px;
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:var(--radius-md);
-  color:var(--text); text-decoration:none;
-  font-size:15.5px; font-weight:500;
-  box-shadow:0 1px 2px rgba(59,36,23,.05);
-  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--dark-roast); color-scheme: light; }
+body {
+  margin: 0; color: var(--dark-roast); font: 400 16.5px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden;
 }
-.link:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(59,36,23,.11);
-  border-color:rgba(59,36,23,.16);
+img, video, svg { display: block; max-width: 100%; }
+picture { display: contents; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -.03em; line-height: .95; margin: 0; text-wrap: balance; font-synthesis: none; }
+em { font-style: italic; }
+p, figure { margin: 0; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--golden-crust); outline-offset: 3px; }
+[hidden] { display: none !important; }
+.paper { background-color: var(--milk-bun); background-image: var(--grain); }
+.page { max-width: 520px; margin: 0 auto; overflow: hidden; overflow: clip; }
+@media (min-width: 600px) {
+  html { background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(var(--gc), .28), transparent 70%) fixed, var(--dark-roast); }
+  .page { margin: 28px auto; border-radius: 36px; box-shadow: 0 0 0 1px rgba(var(--mb), .08), 0 50px 100px -40px rgba(0, 0, 0, .65); }
 }
-.link:active{transform:translateY(0)}
-.link:focus-visible{outline:2.5px solid var(--accent); outline-offset:3px}
-.link .icon{flex:0 0 22px; width:22px; height:22px; color:var(--toasted-crumb)}
-.link .label{flex:1; text-align:left}
-.link .sub{display:block; font-size:12.5px; font-weight:400; color:var(--text-muted); margin-top:1px}
-.link .chev{flex:0 0 auto; color:var(--text-muted); opacity:.5}
 
-/* Primary "order" link — the one action that matters */
-.link.primary{
-  background:var(--accent); border-color:var(--accent); color:var(--white);
-  font-weight:600; box-shadow:0 2px 10px rgba(189,129,69,.28);
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font: 600 12px/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--toasted-crumb);
 }
-.link.primary .icon,.link.primary .chev{color:var(--white); opacity:.9}
-.link.primary .sub{color:rgba(255,255,255,.82)}
-.link.primary:hover{box-shadow:0 10px 24px rgba(189,129,69,.34)}
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--golden-crust); }
+.hero .eyebrow, .dark .eyebrow { color: var(--warm-glaze); }
 
-footer{font-size:12.5px; color:var(--text-muted); opacity:.75}
-footer a{color:inherit; text-decoration:none; border-bottom:1px solid var(--border)}
-footer a:hover{color:var(--text)}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em; height: 54px; padding: 0 26px;
+  border: 0; border-radius: 999px; font: 650 16.5px/1 var(--font-body); text-decoration: none; white-space: nowrap;
+  background: var(--dark-roast); color: var(--milk-bun); box-shadow: 0 12px 28px -12px rgba(var(--dr), .6);
+  transition: transform .35s var(--spring); touch-action: manipulation;
+}
+.btn:active { transform: scale(.95); }
+.btn svg { width: 19px; height: 19px; }
 
-@media (prefers-reduced-motion:reduce){
-  *{transition:none !important}
+/* ── Hero: the buns on video, the line from the box label, live status ── */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  height: clamp(470px, 70vh, 640px); height: clamp(470px, 70svh, 640px);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: calc(14px + env(safe-area-inset-top)) var(--gutter) calc(var(--sheet) + 24px);
+  background: var(--dark-roast); color: var(--milk-bun);
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-media video { opacity: 0; transition: opacity .9s var(--ease); height: calc(100% - 4px); } /* a hair smaller than the still (hidden under the sheet), so the still stays the page's largest paint and the late video can't hurt LCP */
+.hero-media video.is-on { opacity: 1; }
+.hero::after { /* light where the buns are, dark where the words are */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(var(--dr), .5) 0%, rgba(var(--dr), 0) 15%, rgba(var(--dr), .08) 27%, rgba(var(--dr), .6) 42%, rgba(var(--dr), .86) 60%, rgba(var(--dr), .96) 100%);
+}
+.hero .eyebrow, .brand { text-shadow: 0 1px 14px rgba(var(--dr), .7); }
+.hero-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font: 600 23px/1 var(--font-display); letter-spacing: -.02em; }
+.brand img { width: 34px; height: 34px; border-radius: 10px; box-shadow: 0 6px 18px -6px rgba(var(--dr), .7); }
+.round {
+  flex: none; width: 44px; height: 44px; border: 0; border-radius: 50%; display: grid; place-items: center; padding: 0;
+  background: rgba(var(--mb), .16); color: var(--milk-bun); box-shadow: inset 0 0 0 1px rgba(var(--mb), .24);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); touch-action: manipulation;
+}
+.round svg { width: 20px; height: 20px; }
+.hero h1 { font-size: clamp(3.1rem, 15.4vw, 4.7rem); line-height: .86; letter-spacing: -.04em; margin: 14px 0 18px; }
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: .2em; margin-bottom: -.2em; } /* room for the tail of the y */
+.hero h1 .line > span { display: inline-block; animation: rise 1s var(--ease) both; animation-delay: calc(.1s + var(--i) * .09s); }
+.hero h1 em { font-weight: 480; color: var(--warm-glaze); }
+@keyframes rise { from { transform: translateY(125%); } to { transform: none; } }
+.fade-in { animation: fade 1s var(--ease) .45s both; }
+@keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+.live {
+  display: flex; align-items: flex-start; gap: 10px; min-height: 58px; width: fit-content; max-width: 100%;
+  padding: 10px 16px 10px 13px; border-radius: 20px; font-size: 14.5px; font-weight: 500; line-height: 1.3;
+  background: rgba(var(--mb), .14); box-shadow: inset 0 0 0 1px rgba(var(--mb), .24);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.live b { font-weight: 650; font-variant-numeric: tabular-nums; }
+.live-lines { display: grid; gap: 3px; align-self: center; }
+.live-lines .sub { font-size: 13px; opacity: .8; }
+.dot { flex: none; width: 9px; height: 9px; margin-top: 5px; border-radius: 50%; background: var(--golden-crust); animation: pulse 2.2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(var(--gc), .65); } 70%, 100% { box-shadow: 0 0 0 11px rgba(var(--gc), 0); } }
+
+/* ── The sheet: order, then everywhere else we are ── */
+.sheet { position: relative; z-index: 1; margin-top: calc(var(--sheet) * -1); border-radius: var(--sheet) var(--sheet) 0 0; padding: 22px var(--gutter) 0; }
+.order {
+  position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; gap: 14px;
+  min-height: 74px; padding: 12px 12px 12px 24px; border-radius: 26px; text-decoration: none;
+  background: var(--dark-roast); color: var(--milk-bun); box-shadow: 0 20px 40px -20px rgba(var(--dr), .8);
+  transition: transform .35s var(--spring); touch-action: manipulation;
+}
+.order:active { transform: scale(.97); }
+.order-text { flex: 1; min-width: 0; display: grid; gap: 5px; }
+.order b { font: 600 27px/1 var(--font-display); letter-spacing: -.025em; }
+.order small { font-size: 13.5px; line-height: 1.3; color: rgba(var(--mb), .74); font-variant-numeric: tabular-nums; }
+.go { flex: none; width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: var(--golden-crust); color: var(--white); }
+.go svg { width: 22px; height: 22px; transition: transform .35s var(--spring); }
+.order:hover .go svg { transform: translateX(3px); }
+.order::after { /* a slow sheen, like light across a glaze */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(var(--wg), .16) 50%, transparent 65%);
+  transform: translateX(-100%); animation: sheen 6s var(--ease) 2.2s infinite;
+}
+@keyframes sheen { 0% { transform: translateX(-100%); } 28%, 100% { transform: translateX(100%); } }
+.note { display: flex; gap: 8px; margin: 12px 6px 0; font-size: 13.5px; line-height: 1.45; color: var(--toasted-crumb); }
+.note svg { flex: none; width: 18px; height: 18px; margin-top: 1px; }
+
+.links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.tile {
+  position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 178px; padding: 14px 15px; border-radius: 24px; text-decoration: none;
+  background: var(--toasted-crumb); color: var(--milk-bun); box-shadow: 0 22px 40px -26px rgba(var(--dr), .8);
+  transition: transform .35s var(--spring); touch-action: manipulation;
+}
+.tile:active, .row:active { transform: scale(.97); }
+.tile.wide { grid-column: 1 / -1; min-height: 196px; padding: 18px; }
+.tile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.tile:hover img { transform: scale(1.05); }
+.tile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(var(--dr), 0) 28%, rgba(var(--dr), .86) 100%); }
+.tile.wide::after { background: linear-gradient(90deg, rgba(var(--dr), .8) 0%, rgba(var(--dr), .25) 62%, rgba(var(--dr), 0) 100%), linear-gradient(180deg, transparent 50%, rgba(var(--dr), .5)); }
+.glyph {
+  position: absolute; top: 13px; left: 13px; width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center;
+  background: rgba(var(--mb), .18); box-shadow: inset 0 0 0 1px rgba(var(--mb), .26); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.wide .glyph { top: 18px; left: 18px; }
+.glyph svg { width: 21px; height: 21px; }
+.tile b { font: 600 25px/1.05 var(--font-display); letter-spacing: -.025em; }
+.tile .sub { font-size: 13.5px; line-height: 1.35; margin-top: 3px; opacity: .88; }
+.pill {
+  position: absolute; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 15px;
+  border-radius: 999px; background: var(--milk-bun); color: var(--dark-roast); font-size: 14.5px; font-weight: 650;
+}
+.pill svg { width: 15px; height: 15px; }
+.row {
+  grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; min-height: 74px; padding: 12px 16px 12px 12px;
+  border-radius: 22px; background: var(--white); text-decoration: none; transition: transform .35s var(--spring); touch-action: manipulation;
+  box-shadow: 0 1px 0 rgba(var(--dr), .04), 0 18px 36px -28px rgba(var(--dr), .55);
+}
+.thumb { flex: none; width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; background: var(--milk-bun); color: var(--toasted-crumb); }
+.thumb img { width: 56px; height: 56px; max-width: none; filter: drop-shadow(0 6px 6px rgba(var(--dr), .3)); animation: bob 4.5s ease-in-out infinite; }
+.thumb svg { width: 24px; height: 24px; }
+@keyframes bob { 0%, 100% { transform: translateY(1px) rotate(-5deg); } 50% { transform: translateY(-3px) rotate(5deg); } }
+.row-text { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.row b { font-size: 16.5px; font-weight: 650; line-height: 1.25; }
+.row .sub { font-size: 13.5px; color: var(--toasted-crumb); }
+.chev { flex: none; width: 18px; height: 18px; color: var(--toasted-crumb); }
+
+/* ── Sections ── */
+.sec { padding-top: 64px; content-visibility: auto; contain-intrinsic-size: auto 620px; } /* phones skip drawing these until you get close */
+.head { padding: 0 var(--gutter); margin-bottom: 22px; }
+.head h2, .box h2 { margin-top: 14px; font-size: clamp(2.6rem, 12vw, 3.5rem); }
+h2 em { font-weight: 480; color: var(--golden-crust); }
+.dark h2 em { color: var(--warm-glaze); }
+.head p { margin-top: 10px; font-size: 16px; color: var(--toasted-crumb); }
+.dark .head p { color: rgba(var(--mb), .7); }
+
+/* On the tray: swipe through, squish a bun */
+.rail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(66%, 260px); gap: 12px;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+  padding: 4px var(--gutter) 30px; scroll-padding: 0 var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.rail::-webkit-scrollbar { display: none; }
+.bun {
+  scroll-snap-align: start; position: relative; display: flex; flex-direction: column;
+  padding: 12px 16px 18px; border-radius: 30px; background: var(--white);
+  box-shadow: 0 1px 0 rgba(var(--dr), .04), 0 26px 50px -34px rgba(var(--dr), .55);
+}
+.bun[data-tone="glaze"] { background: var(--warm-glaze); }
+.bun[data-tone="dark"] { background: var(--dark-roast); color: var(--milk-bun); }
+.stage { position: relative; aspect-ratio: 1; display: grid; place-items: center; margin: 0 -4px 4px; }
+.plate {
+  position: absolute; inset: 7%; border-radius: 50%;
+  background: radial-gradient(circle at 50% 42%, var(--white) 0 55%, rgba(var(--wg), .55) 62%, var(--white) 66.5%, var(--white) 69%, rgba(var(--wg), .9) 70.5%, var(--white) 72%);
+  box-shadow: 0 30px 40px -28px rgba(var(--dr), .55), inset 0 -14px 26px rgba(var(--dr), .07);
+}
+.squish {
+  position: relative; z-index: 1; width: 72%; aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; background: none;
+  touch-action: manipulation; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+}
+.squish::before { /* contact shadow */
+  content: ""; position: absolute; left: 12%; right: 12%; bottom: 3%; height: 22%;
+  background: radial-gradient(ellipse at center, rgba(var(--dr), .5), rgba(var(--dr), 0) 70%); filter: blur(6px); transition: transform .14s ease-out;
+}
+.sq { display: block; position: relative; transform-origin: 50% 88%; }
+.sq img { width: 100%; height: auto; pointer-events: none; }
+.squish.is-pressed .sq { transform: scale(1.09, .85); transition: transform .12s ease-out; }
+.squish.is-pressed::before { transform: scaleX(1.2); }
+.sq.is-bouncing { animation: boing .75s var(--spring); }
+@keyframes boing { 0% { transform: scale(1.09, .85); } 30% { transform: scale(.94, 1.08); } 55% { transform: scale(1.03, .97); } 78% { transform: scale(.99, 1.01); } 100% { transform: none; } }
+.photo { position: relative; z-index: 1; width: 74%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 6px var(--white), 0 26px 34px -22px rgba(var(--dr), .6); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.tap-hint {
+  position: absolute; z-index: 2; left: 0; top: 2%; display: flex; align-items: flex-end; gap: 3px; rotate: -8deg;
+  font: italic 480 18px/1 var(--font-display); color: var(--toasted-crumb); transition: opacity .4s; pointer-events: none;
+}
+.bun[data-tone="glaze"] .tap-hint { color: var(--dark-roast); }
+.tap-hint svg { width: 32px; height: 32px; translate: 0 8px; }
+.tap-hint.is-gone { opacity: 0; }
+.bun h3 { font-size: 31px; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.desc { margin-top: 8px; font-size: 14.5px; line-height: 1.45; color: var(--toasted-crumb); }
+.bun[data-tone="glaze"] .desc { color: var(--dark-roast); }
+.bun[data-tone="dark"] .desc { color: rgba(var(--mb), .75); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 12px; min-height: 42px; }
+.chip { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; font-size: 13.5px; font-weight: 650; font-variant-numeric: tabular-nums; background: rgba(var(--dr), .08); }
+.bun[data-tone="dark"] .chip { background: rgba(var(--mb), .13); }
+.chip.hot { background: var(--golden-crust); color: var(--dark-roast); } /* dark on golden: 4.6:1 */
+
+/* From our kitchen: tap-through clips, like stories */
+.kitchen { margin-top: 26px; padding: 56px 0 72px; background: var(--dark-roast); color: var(--milk-bun); border-radius: var(--sheet) var(--sheet) 0 0; }
+.story {
+  position: relative; isolation: isolate; overflow: hidden; margin: 0 var(--gutter); aspect-ratio: 4 / 5; border-radius: 28px;
+  background: #2a190f; box-shadow: 0 0 0 1px rgba(var(--mb), .1), 0 46px 80px -44px rgba(var(--gc), .7);
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation;
+}
+.slide { position: absolute; inset: 0; opacity: 0; transition: opacity .5s var(--ease); }
+.slide.is-on { opacity: 1; }
+.slide img, .slide video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.slide video { opacity: 0; transition: opacity .35s; }
+.slide video.is-on { opacity: 1; }
+.slide figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 70px 20px 20px; color: var(--milk-bun);
+  background: linear-gradient(180deg, rgba(var(--dr), 0), rgba(var(--dr), .88));
+}
+.num { display: block; font: italic 480 30px/1 var(--font-display); color: var(--warm-glaze); letter-spacing: -.03em; }
+.slide b { display: block; margin-top: 6px; font: 600 29px/1 var(--font-display); letter-spacing: -.03em; }
+.slide figcaption span.line { display: block; margin-top: 7px; font-size: 14.5px; line-height: 1.4; color: rgba(var(--mb), .84); }
+.bars { position: absolute; z-index: 3; top: 12px; left: 14px; right: 62px; display: flex; gap: 4px; pointer-events: none; }
+.bars span { flex: 1; height: 3px; border-radius: 3px; overflow: hidden; background: rgba(var(--mb), .3); }
+.bars i { display: block; height: 100%; background: var(--milk-bun); transform: scaleX(0); transform-origin: left; }
+.tap { position: absolute; z-index: 2; top: 0; bottom: 0; width: 34%; padding: 0; border: 0; background: none; }
+.tap.next { right: 0; width: 66%; }
+.tap:focus-visible { outline-offset: -6px; }
+.story .round { position: absolute; z-index: 4; top: 8px; right: 10px; width: 42px; height: 42px; }
+.story .round .i-play, .story .round.is-paused .i-pause { display: none; }
+.story .round.is-paused .i-play { display: block; }
+.story-ui { display: none; }
+.js .story-ui { display: flex; }
+.js .story .tap.story-ui { display: block; }
+.story-hint { justify-content: center; margin-top: 14px; font-size: 13.5px; color: rgba(var(--mb), .6); }
+
+/* Got one of our boxes? */
+.box { position: relative; z-index: 1; margin-top: calc(var(--sheet) * -1); padding: 60px var(--gutter) 70px; border-radius: var(--sheet) var(--sheet) 0 0; text-align: center; }
+.stack { position: relative; width: min(58vw, 230px); aspect-ratio: 23 / 31; margin: 6px auto 34px; cursor: pointer; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+.polaroid {
+  position: absolute; inset: 0; padding: 9px 9px 42px; border-radius: 6px; background: var(--white);
+  box-shadow: 0 24px 40px -22px rgba(var(--dr), .65); transition: transform .5s var(--spring), opacity .4s var(--ease);
+}
+.polaroid img { width: 100%; height: 100%; object-fit: cover; border-radius: 3px; pointer-events: none; }
+.polaroid figcaption { position: absolute; left: 0; right: 0; bottom: 11px; font: italic 480 18px/1 var(--font-display); color: var(--toasted-crumb); }
+.polaroid:nth-child(1) { transform: translate(-16px, 8px) rotate(-8deg); }
+.polaroid:nth-child(2) { transform: translate(14px, 2px) rotate(6deg); }
+.polaroid:nth-child(3) { transform: rotate(-1.5deg); }
+.polaroid.is-out { transform: translate(115%, -4%) rotate(18deg); opacity: 0; }
+.box p.lede { max-width: 22em; margin: 14px auto 26px; font-size: 16.5px; color: var(--toasted-crumb); }
+.box p.lede a { color: var(--dark-roast); font-weight: 650; text-decoration-color: var(--golden-crust); text-underline-offset: 3px; }
+
+/* Marquee and footer */
+.band { background: var(--golden-crust); color: var(--dark-roast); overflow: hidden; padding: 15px 0; }
+.band-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+.band-track span { display: inline-flex; align-items: center; gap: 20px; padding-right: 20px; font: 600 25px/1 var(--font-display); letter-spacing: -.02em; white-space: nowrap; }
+.band-track span::after { content: "✺"; font-size: .7em; opacity: .7; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.foot { display: grid; gap: 18px; padding: 40px var(--gutter) calc(36px + env(safe-area-inset-bottom)); background: var(--dark-roast); color: var(--warm-glaze); font-size: 15px; }
+.foot .brand { color: var(--milk-bun); }
+.foot nav { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0 -10px; }
+.foot nav a { padding: 10px; text-decoration: none; } /* 44 px tall targets */
+.foot small { font-size: 13.5px; opacity: .8; }
+
+/* Order dock: always one thumb away once you scroll past the big button */
+.dock {
+  position: fixed; z-index: 60; left: 50%; bottom: calc(10px + env(safe-area-inset-bottom)); width: min(500px, calc(100% - 20px));
+  display: flex; align-items: center; gap: 12px; padding: 7px 7px 7px 18px; border-radius: 999px;
+  background: rgba(var(--dr), .94); color: var(--milk-bun); box-shadow: 0 20px 44px -16px rgba(var(--dr), .75);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  transform: translate(-50%, 160%); visibility: hidden; transition: transform .55s var(--spring), visibility 0s .55s;
+}
+.dock.is-on { transform: translate(-50%, 0); visibility: visible; transition: transform .55s var(--spring); }
+.dock-text { flex: 1; min-width: 0; font-size: 13.5px; line-height: 1.25; }
+.dock-text b { display: block; font-size: 15px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dock-text span { opacity: .78; font-variant-numeric: tabular-nums; }
+.dock .btn { flex: none; height: 46px; padding: 0 22px; background: var(--milk-bun); color: var(--dark-roast); box-shadow: none; }
+@media (min-width: 600px) { .dock { bottom: 24px; } }
+.toast {
+  position: fixed; z-index: 70; left: 50%; bottom: calc(84px + env(safe-area-inset-bottom)); padding: 12px 18px; border-radius: 999px;
+  background: var(--milk-bun); color: var(--dark-roast); font-size: 15px; font-weight: 600; box-shadow: 0 16px 36px -14px rgba(var(--dr), .7);
+  transform: translate(-50%, 20px); opacity: 0; pointer-events: none; transition: transform .4s var(--spring), opacity .3s;
+}
+.toast.is-on { transform: translate(-50%, 0); opacity: 1; }
+
+.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--d, 0) * 80ms); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+@media (hover: hover) { .tile:hover, .row:hover { transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .order::after { display: none; }
+  .js .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 <body>
-<main class="card">
+<div class="page paper">
 
-  <img class="logo" src="assets/logo.png" alt="Alina Bun"
-       onerror="this.style.display='none'">
+<header class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <picture><source type="image/avif" srcset="assets/img/hero-540.avif"><img src="assets/img/hero-540.jpg" width="540" height="960" alt="" fetchpriority="high" decoding="async"></picture>
+    <video muted playsinline preload="none" tabindex="-1" width="432" height="768" data-src="assets/video/hero.mp4"></video>
+  </div>
+  <div class="hero-top">
+    <p class="brand"><img src="assets/favicon.svg" alt="" width="34" height="34">Alina Bun</p>
+    <button class="round" type="button" data-share aria-label="Share this page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+    </button>
+  </div>
+  <div>
+    <p class="eyebrow fade-in">Home bakery · Malé, Maldives</p>
+    <h1>
+      <span class="line"><span style="--i:0">Softest bun</span></span>
+      <span class="line"><span style="--i:1">you will</span></span>
+      <span class="line"><span style="--i:2"><em>ever touch.</em></span></span>
+    </h1>
+    <p class="live fade-in" data-live><span class="dot" aria-hidden="true"></span><span class="live-lines" data-live-text><span>Made by hand, the morning you get them</span></span></p>
+  </div>
+</header>
 
-  <h1>Alina Bun</h1>
-  <p class="tagline">Fresh buns, baked to order.</p>
-  <p class="handle">@alina.bun_</p>
-
-  <nav class="links">
-
-    <!-- Primary action. Point this wherever orders actually come in. -->
-    <a class="link primary" href="https://www.instagram.com/alina.bun_/">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      <span class="label">Order a box<span class="sub">Send us a DM on Instagram</span></span>
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+<main>
+  <section class="sheet paper" aria-label="Order and links">
+    <a class="order" href="https://store.alinabun.com/" data-order>
+      <span class="order-text"><b>Order buns</b><small data-order-sub>Delivered to your door, or your boat</small></span>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
+    <p class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+      <span data-fees>We deliver in Malé and Hulhumalé, or to your boat. Pickup is free.</span>
+    </p>
 
-    <a class="link" href="https://www.instagram.com/alina.bun_/">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
-      </svg>
-      <span class="label">Instagram<span class="sub">Photos of what's fresh</span></span>
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
+    <nav class="links" aria-label="Alina Bun elsewhere">
+      <a class="tile wide" href="https://www.instagram.com/alina.bun_/" data-ig>
+        <picture><source type="image/avif" srcset="assets/img/flowers-cream-480.avif"><img src="assets/img/flowers-cream-480.jpg" width="480" height="640" alt="" decoding="async" fetchpriority="low" style="object-position:50% 58%"></picture>
+        <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <b>Instagram</b>
+        <span class="sub"><span data-ig-handle>@alina.bun_</span><br>Photos of what's fresh</span>
+        <span class="pill" aria-hidden="true">Follow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </a>
+      <a class="tile" href="https://www.tiktok.com/@alina.bun_">
+        <picture><source type="image/avif" srcset="assets/img/oven-480.avif"><img src="assets/img/oven-480.jpg" width="480" height="640" alt="" loading="lazy" decoding="async"></picture>
+        <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .72-5.08v-3.1a5.65 5.65 0 0 0-.72-.05A5.67 5.67 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48z"/></svg></span>
+        <b>TikTok</b><span class="sub">Baking, start to finish</span>
+      </a>
+      <a class="tile" href="https://www.facebook.com/share/1CqeotLEx9/">
+        <picture><source type="image/avif" srcset="assets/img/beach-cream-480.avif"><img src="assets/img/beach-cream-480.jpg" width="480" height="640" alt="" loading="lazy" decoding="async"></picture>
+        <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></span>
+        <b>Facebook</b><span class="sub">News and updates</span>
+      </a>
+      <a class="row" href="https://alinabun.com/">
+        <span class="thumb"><picture><source type="image/avif" srcset="assets/img/cut-cream-400.avif"><img src="assets/img/cut-cream-400.webp" width="400" height="400" alt="" loading="lazy" decoding="async"></picture></span>
+        <span class="row-text"><b>Meet the buns</b><span class="sub">alinabun.com</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a class="row" href="https://ig.me/m/alina.bun_" data-dm>
+        <span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.55L3.5 21l1.45-4.6A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="2.6"/></svg></span>
+        <span class="row-text"><b>Questions? Message us</b><span class="sub">We answer on Instagram</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </nav>
+  </section>
 
-    <a class="link" href="https://www.tiktok.com/@alina.bun_">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .72-5.08v-3.1a5.65 5.65 0 0 0-.72-.05A5.67 5.67 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48z"/>
-      </svg>
-      <span class="label">TikTok<span class="sub">Baking, start to finish</span></span>
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
+  <section class="sec" aria-labelledby="tray-title">
+    <div class="head reveal">
+      <p class="eyebrow">On the tray</p>
+      <h2 id="tray-title">Meet the <em>buns.</em></h2>
+      <p>Go on, give one a squish.</p>
+    </div>
+    <div class="rail" data-buns>
+      <article class="bun" data-bun="tuna" data-tone="glaze">
+        <div class="stage"><div class="plate" aria-hidden="true"></div>
+          <button class="squish" type="button" aria-label="Give the tuna bun a squish"><span class="sq"><picture><source type="image/avif" srcset="assets/img/cut-tuna-400.avif"><img src="assets/img/cut-tuna-400.webp" width="400" height="400" alt="A golden tuna bun, flecked with chilli" loading="lazy" decoding="async"></picture></span></button>
+          <p class="tap-hint" aria-hidden="true">tap me<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8c14 0 24 8 26 24"/><path d="M26 27l6 6 3-8"/></svg></p>
+        </div>
+        <h3>Tuna</h3>
+        <p class="desc">Savoury and properly filled, under a glossy glaze flecked with chilli.</p>
+        <p class="chips"></p>
+      </article>
+      <article class="bun" data-bun="cream" data-tone="white">
+        <div class="stage"><div class="plate" aria-hidden="true"></div>
+          <button class="squish" type="button" aria-label="Give the cream bun a squish"><span class="sq"><picture><source type="image/avif" srcset="assets/img/cut-cream-400.avif"><img src="assets/img/cut-cream-400.webp" width="400" height="400" alt="A cream bun with a golden swirl on top" loading="lazy" decoding="async"></picture></span></button>
+        </div>
+        <h3>Cream</h3>
+        <p class="desc">Soft and sweet, with a golden swirl baked into the top.</p>
+        <p class="chips"></p>
+      </article>
+      <article class="bun" data-bun="sesame" data-tone="glaze">
+        <div class="stage"><div class="plate" aria-hidden="true"></div>
+          <div class="photo"><picture><source type="image/avif" srcset="assets/img/sesame-top-480.avif"><img src="assets/img/sesame-top-480.jpg" width="480" height="544" alt="Sesame knot buns on a cream plate" loading="lazy" decoding="async"></picture></div>
+        </div>
+        <h3>Sesame</h3>
+        <p class="desc">A soft knot of dough, glazed and scattered with sesame.</p>
+        <p class="chips"></p>
+      </article>
+      <article class="bun" data-bun="chocolate" data-tone="dark">
+        <div class="stage"><div class="plate" aria-hidden="true"></div>
+          <button class="squish" type="button" aria-label="Give the chocolate bun a squish"><span class="sq"><picture><source type="image/avif" srcset="assets/img/cut-chocolate-400.avif"><img src="assets/img/cut-chocolate-400.webp" width="400" height="400" alt="A chocolate bun with a chocolate lattice on top" loading="lazy" decoding="async"></picture></span></button>
+        </div>
+        <h3>Chocolate</h3>
+        <p class="desc">Criss-crossed with chocolate on top, and chocolate all the way through.</p>
+        <p class="chips"></p>
+      </article>
+      <article class="bun" data-bun="lava-creme-cheese" data-tone="white">
+        <div class="stage"><div class="plate" aria-hidden="true"></div>
+          <div class="photo"><picture><source type="image/avif" srcset="assets/img/lava-400.avif"><img src="assets/img/lava-400.jpg" width="400" height="400" alt="A golden bun torn open, filled with creme cheese" loading="lazy" decoding="async"></picture></div>
+        </div>
+        <h3>Lava Creme Cheese</h3>
+        <p class="desc">Only available for pre-order.</p>
+        <p class="chips"></p>
+      </article>
+    </div>
+    <template id="bun-template">
+      <article class="bun" data-tone="white">
+        <div class="stage"><div class="plate" aria-hidden="true"></div><div class="photo"><img alt="" loading="lazy" decoding="async"></div></div>
+        <h3></h3>
+        <p class="desc">Fresh from the oven, made by hand.</p>
+        <p class="chips"></p>
+      </article>
+    </template>
+  </section>
 
-    <a class="link" href="https://www.facebook.com/share/1CqeotLEx9/">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94z"/>
-      </svg>
-      <span class="label">Facebook<span class="sub">Updates &amp; pickup times</span></span>
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
+  <section class="sec kitchen dark" aria-labelledby="kitchen-title">
+    <div class="head reveal">
+      <p class="eyebrow">From our kitchen</p>
+      <h2 id="kitchen-title">Made by hand, <em>start to finish.</em></h2>
+    </div>
+    <div class="story" data-story tabindex="0" role="region" aria-roledescription="carousel" aria-label="Five short clips from our kitchen">
+      <div class="bars story-ui" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+      <figure class="slide is-on" aria-roledescription="slide" aria-label="1 of 5">
+        <picture><source type="image/avif" srcset="assets/img/filling.avif"><img src="assets/img/filling.jpg" width="480" height="600" alt="" loading="lazy" decoding="async"></picture>
+        <video muted playsinline preload="none" tabindex="-1" aria-hidden="true" width="480" height="600" data-src="assets/video/filling.mp4"></video>
+        <figcaption><span class="num">01</span><b>Filled by hand</b><span class="line">Every bun is filled and folded by hand.</span></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true">
+        <picture><source type="image/avif" srcset="assets/img/shaping.avif"><img src="assets/img/shaping.jpg" width="480" height="600" alt="" loading="lazy" decoding="async"></picture>
+        <video muted playsinline preload="none" tabindex="-1" aria-hidden="true" width="480" height="600" data-src="assets/video/shaping.mp4"></video>
+        <figcaption><span class="num">02</span><b>Shaped one at a time</b><span class="line">Rolled, swirled or knotted. No machines, no shortcuts.</span></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true">
+        <picture><source type="image/avif" srcset="assets/img/glazing.avif"><img src="assets/img/glazing.jpg" width="480" height="600" alt="" loading="lazy" decoding="async"></picture>
+        <video muted playsinline preload="none" tabindex="-1" aria-hidden="true" width="480" height="600" data-src="assets/video/glazing.mp4"></video>
+        <figcaption><span class="num">03</span><b>Glazed and criss-crossed</b><span class="line">A glossy glaze, a swirl, a chocolate lattice.</span></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true">
+        <picture><source type="image/avif" srcset="assets/img/packing.avif"><img src="assets/img/packing.jpg" width="480" height="600" alt="" loading="lazy" decoding="async"></picture>
+        <video muted playsinline preload="none" tabindex="-1" aria-hidden="true" width="480" height="600" data-src="assets/video/packing.mp4"></video>
+        <figcaption><span class="num">04</span><b>Boxed one by one</b><span class="line">Each bun gets its own clear box and our label.</span></figcaption>
+      </figure>
+      <figure class="slide" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true">
+        <picture><source type="image/avif" srcset="assets/img/beach.avif"><img src="assets/img/beach.jpg" width="480" height="600" alt="" loading="lazy" decoding="async"></picture>
+        <video muted playsinline preload="none" tabindex="-1" aria-hidden="true" width="480" height="600" data-src="assets/video/beach.mp4"></video>
+        <figcaption><span class="num">05</span><b>Made for island days</b><span class="line">We'll bring your buns to your boat while it's in Malé.</span></figcaption>
+      </figure>
+      <button class="tap prev story-ui" type="button" aria-label="Previous clip"></button>
+      <button class="tap next story-ui" type="button" aria-label="Next clip"></button>
+      <button class="round story-ui" type="button" data-story-toggle aria-label="Pause">
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg>
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+      </button>
+    </div>
+    <p class="story-hint story-ui">Tap to skip · hold to pause</p>
+  </section>
 
-    <!-- Uncomment when store.alinabun.com is live:
-    <a class="link" href="https://store.alinabun.com">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
-      </svg>
-      <span class="label">Order online<span class="sub">Browse the full menu</span></span>
-      <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
-    -->
+  <section class="sec box paper" aria-labelledby="box-title">
+    <div class="stack" data-stack role="button" tabindex="0" aria-label="Show the next photo">
+      <figure class="polaroid"><picture><source type="image/avif" srcset="assets/img/ixora-tuna-480.avif"><img src="assets/img/ixora-tuna-480.jpg" width="480" height="640" alt="A boxed tuna bun in front of red ixora flowers" loading="lazy" decoding="async"></picture><figcaption>In the garden</figcaption></figure>
+      <figure class="polaroid"><picture><source type="image/avif" srcset="assets/img/box-cream-hand-480.avif"><img src="assets/img/box-cream-hand-480.jpg" width="480" height="640" alt="A cream bun in its clear box with the Alina Bun label" loading="lazy" decoding="async"></picture><figcaption>Fresh out of the box</figcaption></figure>
+      <figure class="polaroid"><picture><source type="image/avif" srcset="assets/img/beach-chocolate-480.avif"><img src="assets/img/beach-chocolate-480.jpg" width="480" height="640" alt="A boxed chocolate bun held up on a Maldives beach" loading="lazy" decoding="async"></picture><figcaption>On the beach</figcaption></figure>
+    </div>
+    <p class="eyebrow">Got one of our boxes?</p>
+    <h2 id="box-title">Share the <em>softness.</em></h2>
+    <p class="lede">Snap your bun and tag <a href="https://www.instagram.com/alina.bun_/" data-ig data-ig-handle>@alina.bun_</a>. We love seeing where our buns end up.</p>
+    <button class="btn" type="button" data-share>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+      Share Alina Bun
+    </button>
+  </section>
 
-  </nav>
-
-  <footer>
-    <a href="https://alinabun.com">alinabun.com</a>
-  </footer>
-
+  <div class="band" aria-hidden="true">
+    <div class="band-track">
+      <span>Softest bun you will ever touch</span><span>Made by hand in Malé</span><span>Boxed one by one</span><span>To your door, or your boat</span>
+      <span>Softest bun you will ever touch</span><span>Made by hand in Malé</span><span>Boxed one by one</span><span>To your door, or your boat</span>
+    </div>
+  </div>
 </main>
+
+<footer class="foot">
+  <p class="brand"><img src="assets/favicon.svg" alt="" width="30" height="30" loading="lazy">Alina Bun</p>
+  <nav aria-label="All our links">
+    <a href="https://store.alinabun.com/">Order online</a>
+    <a href="https://alinabun.com/">alinabun.com</a>
+    <a href="https://www.instagram.com/alina.bun_/" data-ig>Instagram</a>
+    <a href="https://www.tiktok.com/@alina.bun_">TikTok</a>
+    <a href="https://www.facebook.com/share/1CqeotLEx9/">Facebook</a>
+  </nav>
+  <small>© <span data-year>2026</span> Alina Bun · Malé, Maldives</small>
+</footer>
+</div>
+
+<div class="dock" data-dock>
+  <p class="dock-text"><b data-dock-title>Fresh buns, made to order</b><span data-dock-sub>Order on our store</span></p>
+  <a class="btn" href="https://store.alinabun.com/">Order</a>
+</div>
+<p class="toast" data-toast role="status" aria-live="polite"></p>
+
+<script>
+// links.alinabun.com. The QR code on every box points here, so everything degrades: without this script, or without the
+// store's API, it is still a page of working links. The live menu and status come from the store, the only place that knows them.
+(() => {
+  "use strict";
+  const API = "https://vosokllmaifbcdfbfvdt.supabase.co/functions/v1/store";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const net = navigator.connection || {};
+  const lean = !!net.saveData || /2g|3g/.test(net.effectiveType || ""); // data saver or a slow line: no autoplaying video
+  const autoplay = !calm && !lean;
+
+  // ── Malé time (UTC+5 all year) ──
+  const MVT = 5 * 3600e3;
+  const today = () => new Date(Date.now() + MVT).toISOString().slice(0, 10);
+  const addDays = (d, n) => {
+    const t = new Date(`${d}T00:00:00Z`);
+    t.setUTCDate(t.getUTCDate() + n);
+    return t.toISOString().slice(0, 10);
+  };
+  const until = (ms) => {
+    const m = Math.ceil(ms / 60000);
+    if (m <= 1) return "a minute";
+    const h = Math.floor(m / 60);
+    return h ? `${h} h${m % 60 ? ` ${m % 60} min` : ""}` : `${m} min`;
+  };
+  const mvr = (x) => {
+    const n = Number(x);
+    return `MVR ${Number.isInteger(n) ? n : n.toFixed(2)}`;
+  };
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+
+  // ── Live data ──
+  let live = null; // { products, days }
+
+  async function getJSON(path) {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 9000);
+    try {
+      const res = await fetch(API + path, { signal: ctl.signal });
+      if (!res.ok) throw new Error(String(res.status));
+      return await res.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async function load() {
+    try {
+      const [catalog, days] = await Promise.all([getJSON("/catalog"), getJSON("/delivery-dates")]);
+      live = { products: catalog.products, days };
+      settings(days);
+      renderBuns();
+      renderStatus();
+    } catch {
+      /* the page works without live data */
+    }
+  }
+
+  function settings(d) {
+    if (d.instagram) {
+      const h = encodeURIComponent(d.instagram);
+      for (const a of $$("[data-ig]")) a.href = `https://www.instagram.com/${h}/`;
+      for (const a of $$("[data-dm]")) a.href = `https://ig.me/m/${h}`;
+      for (const el of $$("[data-ig-handle]")) el.textContent = `@${d.instagram}`;
+    }
+    if (d.delivery_fee_male_mvr && d.delivery_fee_outside_male_mvr) {
+      const min = d.delivery_min_buns > 1 ? ` from ${d.delivery_min_buns} buns` : "";
+      $("[data-fees]").textContent =
+        `Delivery${min}: ${mvr(d.delivery_fee_male_mvr)} in Malé, ${mvr(d.delivery_fee_outside_male_mvr)} to Hulhumalé. Pickup is free.`;
+    }
+  }
+
+  /** What to say right now: the pre-order countdown, and any extras left. Same wording as alinabun.com. */
+  function status() {
+    if (!live) return null;
+    const { days, products } = live;
+    const t = today();
+    const name = (id) => products.find((p) => p.id === id)?.name ?? id;
+    const pre = days.dates.find((d) => d.kind === "preorder" && d.available);
+    const extra = days.dates.find((d) => d.kind === "extras" && d.available);
+    const out = { pre, extra, main: "", extras: "", title: "", sub: "", order: "" };
+    if (pre) {
+      out.title = `Order for ${pre.label}`;
+      out.order = `Pre-orders open for ${pre.label}`;
+      const cutoff = Date.UTC(+t.slice(0, 4), +t.slice(5, 7) - 1, +t.slice(8, 10), days.cutoff_hour) - MVT;
+      const left = cutoff - Date.now();
+      if (pre.date === addDays(t, 1) && left > 0) {
+        out.main = `Pre-orders for <b>${esc(pre.label)}</b> close in <b>${until(left)}</b>`;
+        out.sub = `Pre-orders close in ${until(left)}`;
+        out.order = `For ${pre.label} · closes in ${until(left)}`;
+        out.closesIn = left;
+      } else {
+        out.main = `Taking pre-orders for <b>${esc(pre.label)}</b>`;
+        out.sub = "Pre-order now";
+      }
+    }
+    if (extra) {
+      const list = Object.entries(extra.products).filter(([, n]) => n > 0).map(([id, n]) => `${esc(name(id))} ${n}`).join(" · ");
+      const when = extra.date === t ? "Extras today" : `Extras for ${extra.label}`;
+      if (list) out.extras = `${when}: ${list}`;
+      if (!pre && list) {
+        out.title = when;
+        out.sub = "While they last";
+        out.order = `${when}, while they last`;
+      }
+    }
+    return out;
+  }
+
+  function renderStatus() {
+    const s = status();
+    if (!s || (!s.main && !s.extras)) return;
+    const [first, second] = s.main ? [s.main, s.extras] : [s.extras, ""];
+    $("[data-live-text]").innerHTML = `<span>${first}</span>${second ? `<span class="sub">${second}</span>` : ""}`;
+    if (s.order) $("[data-order-sub]").textContent = s.order;
+    $("[data-dock-title]").textContent = s.title || "Fresh buns, made to order";
+    $("[data-dock-sub]").textContent = s.sub || "Order on our store";
+  }
+
+  // Keep the countdown honest; when the cutoff passes, ask the store again (once).
+  let refetch = 0;
+  setInterval(() => {
+    if (!live || document.hidden) return;
+    const s = status();
+    if (s?.closesIn !== undefined && s.closesIn < 30e3 && !refetch) refetch = setTimeout(() => (refetch = 0, load()), s.closesIn + 2000);
+    renderStatus();
+  }, 20e3);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && live) load();
+  });
+
+  /** The buns on sale, in the store's order, with live prices and what's left today (or tomorrow, once its pre-orders have closed). */
+  function renderBuns() {
+    const list = $("[data-buns]");
+    const s = status();
+    const t = today();
+    const extra = s?.extra && (s.extra.date === t || s.extra.date === addDays(t, 1)) ? s.extra : null;
+    const when = extra?.date === t ? "today" : "tomorrow";
+    const keep = new Set();
+    for (const p of live.products) {
+      const card = list.querySelector(`[data-bun="${CSS.escape(p.id)}"]`) || newCard(p);
+      keep.add(card);
+      $("h3", card).textContent = p.name;
+      if (p.description) $(".desc", card).textContent = p.description;
+      const chips = $(".chips", card);
+      chips.replaceChildren(chip(mvr(p.price_mvr)));
+      if (extra) {
+        const n = extra.products[p.id] ?? 0;
+        chips.append(chip(n ? `${n} left ${when}` : `Sold out ${when}`, n ? "hot" : ""));
+      }
+      list.append(card); // the store's order
+    }
+    for (const card of $$("[data-bun]", list)) if (!keep.has(card)) card.remove();
+  }
+
+  function chip(text, cls = "") {
+    const c = document.createElement("span");
+    c.className = `chip ${cls}`.trim();
+    c.textContent = text;
+    return c;
+  }
+
+  /** A bun this page has no photo for yet: use the one uploaded to the store. */
+  function newCard(p) {
+    const card = $("#bun-template").content.firstElementChild.cloneNode(true);
+    card.dataset.bun = p.id;
+    const img = $("img", card);
+    if (p.image_url) {
+      img.src = p.image_url;
+      img.alt = `${p.name} bun`;
+    } else {
+      $(".stage", card).remove();
+    }
+    return card;
+  }
+
+  // ── Squishy buns ──
+  for (const btn of $$(".squish")) {
+    const sq = $(".sq", btn);
+    const press = () => btn.classList.add("is-pressed");
+    const release = () => {
+      if (!btn.classList.contains("is-pressed")) return;
+      btn.classList.remove("is-pressed");
+      navigator.vibrate?.(8); // on release: a touch only counts as a user gesture once the finger lifts
+      sq.classList.remove("is-bouncing");
+      void sq.offsetWidth; // restart the bounce
+      sq.classList.add("is-bouncing");
+      for (const hint of $$(".tap-hint")) hint.classList.add("is-gone");
+    };
+    btn.addEventListener("pointerdown", press);
+    for (const ev of ["pointerup", "pointerleave", "pointercancel"]) btn.addEventListener(ev, release);
+    btn.addEventListener("keydown", (e) => {
+      if (e.key !== " " && e.key !== "Enter") return;
+      e.preventDefault();
+      press();
+      setTimeout(release, 140);
+    });
+    sq.addEventListener("animationend", () => sq.classList.remove("is-bouncing"));
+  }
+
+  // ── Hero video: after everything else has loaded, on a good connection; three loops, then it rests ──
+  const hero = $(".hero video");
+  if (autoplay) {
+    addEventListener("load", () => setTimeout(() => {
+      let loops = 0, seen = true;
+      const go = () => seen && loops < 3 && hero.play().catch(() => {});
+      hero.muted = true;
+      hero.src = hero.dataset.src;
+      hero.addEventListener("playing", () => hero.classList.add("is-on"), { once: true });
+      hero.addEventListener("ended", () => (loops++, go())); // it plays forward then back, so it ends on its first frame
+      new IntersectionObserver(([e]) => ((seen = e.isIntersecting) ? go() : hero.pause())).observe(hero);
+    }, 300), { once: true });
+  }
+
+  // ── From our kitchen: tap right for the next clip, left for the last one, hold to pause ──
+  const story = $("[data-story]");
+  {
+    const slides = $$(".slide", story);
+    const bars = $$(".bars i", story);
+    const toggle = $("[data-story-toggle]", story);
+    const vid = (k) => $("video", slides[k]);
+    let at = 0, playing = false, inView = false, paused = !autoplay, held = false, swallow = false, holdTimer = 0, raf = 0;
+
+    const prime = (k) => {
+      const v = vid(k);
+      if (!v.src) {
+        v.muted = true;
+        v.preload = "auto";
+        v.src = v.dataset.src;
+      }
+      return v;
+    };
+    const paint = () => {
+      const v = vid(at);
+      const f = v.duration ? v.currentTime / v.duration : 0;
+      bars.forEach((b, k) => (b.style.transform = `scaleX(${k < at ? 1 : k > at ? 0 : f})`));
+    };
+    const tick = () => {
+      paint();
+      if (playing) raf = requestAnimationFrame(tick);
+    };
+    const play = () => {
+      if (paused || held || !inView || document.hidden) return;
+      const v = prime(at);
+      v.play().then(() => {
+        playing = true;
+        v.classList.add("is-on");
+        cancelAnimationFrame(raf);
+        tick();
+        prime((at + 1) % slides.length); // the next one loads while this one plays
+      }).catch(() => { // autoplay refused (e.g. Low Power Mode): wait for a tap on play
+        paused = true;
+        sync();
+      });
+    };
+    const stop = () => {
+      playing = false;
+      cancelAnimationFrame(raf);
+      vid(at).pause();
+      paint();
+    };
+    const sync = () => {
+      toggle.classList.toggle("is-paused", paused);
+      toggle.setAttribute("aria-label", paused ? "Play" : "Pause");
+    };
+    const show = (k) => {
+      stop();
+      const old = vid(at);
+      if (old.src) old.currentTime = 0;
+      slides[at].classList.remove("is-on");
+      slides[at].setAttribute("aria-hidden", "true");
+      at = (k + slides.length) % slides.length;
+      slides[at].classList.add("is-on");
+      slides[at].removeAttribute("aria-hidden");
+      paint();
+      play();
+    };
+    slides.forEach((_, k) => vid(k).addEventListener("ended", () => k === at && show(at + 1)));
+    $(".prev", story).addEventListener("click", () => (swallow ? (swallow = false) : show(at - 1)));
+    $(".next", story).addEventListener("click", () => (swallow ? (swallow = false) : show(at + 1)));
+    toggle.addEventListener("click", () => {
+      paused = !paused;
+      sync();
+      paused ? stop() : play();
+    });
+    story.addEventListener("pointerdown", (e) => {
+      swallow = false;
+      if (toggle.contains(e.target)) return;
+      holdTimer = setTimeout(() => {
+        held = true;
+        stop();
+      }, 220);
+    });
+    const letGo = () => {
+      clearTimeout(holdTimer);
+      if (!held) return;
+      held = false;
+      swallow = true; // the click that ends a hold isn't a skip
+      play();
+    };
+    for (const ev of ["pointerup", "pointercancel", "pointerleave"]) story.addEventListener(ev, letGo);
+    story.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") show(at + 1);
+      else if (e.key === "ArrowLeft") show(at - 1);
+      else return;
+      e.preventDefault();
+    });
+    new IntersectionObserver(([e]) => ((inView = e.isIntersecting) ? play() : stop()), { threshold: 0.5 }).observe(story);
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : play()));
+    sync();
+  }
+
+  // ── Polaroids: tap the top one to send it to the back ──
+  const stack = $("[data-stack]");
+  const shuffle = () => {
+    const top = stack.lastElementChild;
+    if (top.classList.contains("is-out")) return;
+    top.classList.add("is-out");
+    setTimeout(() => {
+      stack.prepend(top);
+      top.classList.remove("is-out");
+    }, calm ? 0 : 320);
+  };
+  stack.addEventListener("click", shuffle);
+  stack.addEventListener("keydown", (e) => {
+    if (e.key !== " " && e.key !== "Enter") return;
+    e.preventDefault();
+    shuffle();
+  });
+
+  // ── Share: the phone's share sheet, or copy the link ──
+  const toastEl = $("[data-toast]");
+  let toastTimer = 0;
+  const toast = (msg) => {
+    toastEl.textContent = msg;
+    toastEl.classList.add("is-on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("is-on"), 2400);
+  };
+  const shareData = { title: "Alina Bun", text: "Softest bun you will ever touch. Fresh buns, made by hand in Malé.", url: "https://links.alinabun.com/" };
+  for (const b of $$("[data-share]")) {
+    b.addEventListener("click", async () => {
+      if (navigator.share) {
+        try { await navigator.share(shareData); } catch { /* closed the sheet */ }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        toast("Link copied");
+      } catch {
+        toast("Share this link: links.alinabun.com");
+      }
+    });
+  }
+
+  // ── Order dock: on once the big order button has scrolled away, off over the footer ──
+  const dock = $("[data-dock]");
+  let past = false, atFoot = false;
+  const setDock = () => dock.classList.toggle("is-on", past && !atFoot);
+  new IntersectionObserver(([e]) => {
+    past = !e.isIntersecting && e.boundingClientRect.top < 0;
+    setDock();
+  }).observe($("[data-order]"));
+  new IntersectionObserver(([e]) => {
+    atFoot = e.isIntersecting;
+    setDock();
+  }).observe($(".foot"));
+
+  // ── Reveal as things scroll in ──
+  const reveal = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      e.target.classList.add("is-in");
+      reveal.unobserve(e.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
+  for (const el of $$(".reveal")) reveal.observe(el);
+
+  $("[data-year]").textContent = String(new Date().getFullYear());
+  load();
+})();
+</script>
 </body>
 </html>
